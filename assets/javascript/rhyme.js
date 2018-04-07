@@ -30,17 +30,23 @@ $('.search-filter').on('keyup', function() {
     }
   });
 
-var queryURL = '';
+var wordsURL = '';
+var mxmURL = '';
 
-$('#submit').click(function(event) {
+$('#nav-submit').click(function(event) {
     event.preventDefault();
-    queryURL = `https://www.wordsapi.com/mashape/words/${$('#search').val()}/rhymes?when=2018-04-06T01:03:34.523Z&encrypted=8cfdb282e722979bea9707bfee58bebaaeb3290935fd94b8`;
+    wordsURL = `https://www.wordsapi.com/mashape/words/${$('#nav-search').val()}/rhymes?when=2018-04-06T01:03:34.523Z&encrypted=8cfdb282e722979bea9707bfee58bebaaeb3290935fd94b8`;
+
 
     $.ajax({
-        url: queryURL,
+        url: wordsURL,
         method: "GET"
     }).then(function(response) {
-        $('#results').append(`<p>${response}</p>`);   
+        console.log(response);
+        $('#rhyme-results').empty();
+       response.rhymes.all.forEach(function(element) {
+           $('#rhyme-results').append(`<p>${element}</p>`);  
+       }); 
   });
     
 });
