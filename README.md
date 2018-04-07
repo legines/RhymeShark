@@ -3,6 +3,7 @@
 #### Created using: 
    * FireBase
    * Bootstrap
+   * JavaScript
    * Words API
    * Misixmatch API
    * Youtube API
