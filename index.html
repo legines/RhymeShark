@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Giphy API</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
 </head>
 <body>
-    
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+        <h1>Rhyme Shark</h1>
+        <ul class="sidebar-nav navbar-nav">
+                <br>
+                <h4>Word Search</h4>
+                <li class="nav-item">
+                   <label for="nav-search" class="col-2 col-form-label sr-only">Search links</label>
+                   <div class="col p-2">
+                      <input class="form-control form-control-sm search-filter" type="search" id="nav-search" placeholder="Search for tools">
+                   </div>
+                </li>
+           <div id="link-content"><!-- added this to wrap the links-->     
+                <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti3">Filters</a>
+                    <ul class="sidebar-third-level collapse" id="collapseMulti3">
+                        <li>
+                            <a href="#">Genre</a>
+                        </li>
+                        <li>
+                            <a href="#">Popularity</a>
+                        </li>
+                        <li>
+                            <a href="#">Release Date</a>
+                        </li>
+                        <li>
+                            <a href="#">Language</a>
+                        </li>
+                    </ul>
+                </div>
+          
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="app.js"></script>
+
 </body>
 </html>

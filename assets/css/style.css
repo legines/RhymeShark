@@ -1,0 +1,32 @@
+.navbar-nav.sidebar-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 56px;
+    padding-bottom: 56px;
+    height: 100vh;
+    background: #06a2f0;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: auto;
+  }
+  
+  .navbar-brand {
+    display: inline-block;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: rgb(214, 8, 8);
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .5);
+  }
+
+  .hide {
+    display: none;
+  }
