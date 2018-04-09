@@ -1,12 +1,27 @@
 //---------------------------MusixMatch API-------------------------------//
-//This is to search without any filters
+//This is to search with/without any filters
 $("#nav-submit").on("click",function(event){
   event.preventDefault();
 
   var searchTerm = $("#nav-search").val().trim();
+  var s = document.getElementById("filter");
+  var pop = s.options[s.selectedIndex].value;
+
+  var ajaxURL = ["https://api.musixmatch.com/ws/1.1/track.search?callback=jsonp_callback&apikey=885d92a1571fa34dbadfb6b2506cb335&q_lyrics="+searchTerm+"&format=jsonp&callback=jsonp_callback&page_size=5&f_has_lyrics=1&_=1523257368321",  "https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&q_lyrics="+searchTerm+"&f_has_lyrics=1&s_track_rating=desc&quorum_factor=1&page_size=5&apikey=885d92a1571fa34dbadfb6b2506cb335", "https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&q_lyrics="+searchTerm+"&f_has_lyrics=1&s_track_rating=asc&quorum_factor=1&page_size=5&apikey=885d92a1571fa34dbadfb6b2506cb335"]
+
+  if (pop == 1){
+    var ajaxURL = ajaxURL[1];
+  }
+  else if (pop == 2){
+    var ajaxURL = ajaxURL[2];
+  }
+  else {
+    var ajaxURL = ajaxURL[0];
+  }
+
   //Track name and artist AJAX
   $.ajax({
-    url: "https://api.musixmatch.com/ws/1.1/track.search?callback=jsonp_callback&apikey=885d92a1571fa34dbadfb6b2506cb335&q_lyrics="+searchTerm+"&format=jsonp&callback=jsonp_callback&page_size=5&f_has_lyrics=1&_=1523257368321",
+    url: ajaxURL,
     dataType: "jsonp",
     success: function(data) {
         console.log(data); 
@@ -74,4 +89,9 @@ $("#nav-submit").on("click",function(event){
     }
   });
 });
+
+
+
+
+
 
