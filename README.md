@@ -16,7 +16,7 @@ Are you struggling writing lyrics? Do you need some sick rhymes? This app aims t
 1. Use bootstrap for layout
 2. Figure out how to use AJAX to call word api and append to top div based on search terms
 3. Figure out how to use AJAX to call musixmatch api and append to lower div 
--    * get musixmatch filters to work
+    * get musixmatch filters to work
 4. Find album art to attach to song names from musixmatch
     * make lyrics expand on click or hide 
 5. Use CSS to highlight search term inside lyrics.
