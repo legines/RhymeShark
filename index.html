@@ -1,52 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Giphy API</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>RhymeShark</title>
+
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+
 </head>
 <body>
-  <h1>Rhyme Shark</h1>
-  <nav class="sidebar-nav navbar-nav">
-          <br>
-          <h4>Word Search</h4>
-          <li class="nav-item">
-              <label for="nav-search" class="col-2 col-form-label sr-only">Search links</label>
-              <div class="col p-2">
-                <input class="form-control form-control-sm search-filter" type="search" id="nav-search" placeholder="Search for tools">
-                <button type="submit" id="nav-submit">Submit</button>
-              </div>
-          </li>
-      <div id="link-content"><!-- added this to wrap the links-->     
-          <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti3">Filters</a>
-              <ul class="sidebar-third-level collapse" id="collapseMulti3">
-                  <li>
-                      <a href="#">Genre</a>
-                  </li>
-                  <li>
-                      <a href="#">Popularity</a>
-                  </li>
-                  <li>
-                      <a href="#">Release Date</a>
-                  </li>
-                  <li>
-                      <a href="#">Language</a>
-                  </li>
-              </ul>
+  <div class="wrapper">
+      <!-- Sidebar Holder -->
+      <nav id="sidebar">
+          <div class="sidebar-header">
+            <img class="navbar-brand center" src="./assets/images/rhymeshark.png" width="200px">
           </div>
-  </nav>
-  <div id="rhyme-results"></div>
-  <div id="mxm-results"></div>
-  
-          
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>    
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/javascript/rhyme.js"></script>
+          <ul class="list-unstyled components">
+              <p>"10/10 Rhyme App" - CardiB</p>
+              <li>
+                  <a href="#">Home</a>
+              </li>
+              <li>
+                  <a href="#">About</a>
+              </li>
+              <li>
+                  <a href="#">Contact</a>
+              </li>
+          </ul>
+      </nav>
+  
+      <!-- Page Content Holder -->
+      <div id="content">
+          <!-- Navbar with search and sidebar collapse button -->
+          <nav class="navbar fixed-top-navbar ">
+              <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"><span>X</span></button>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <select class="form-control input-sm" id="filter">
+                      <option>[Filters]</option>
+                      <option value="1">Popularity Desc</option>
+                      <option value="2">Popularity Asc</option>
+                    </select>
+                  </div>
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="nav-search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="nav-submit">Search</button>
+                  </form>
+              </div>
+          </nav>
+          <!-- Main content Starts Here-->
+          <div class="row">
+            <div class="col-md-6 well">
+            <div class="row">
+            <!-- Word API div -->
+            <div class="col-sm-4 col-md-10 words">
+              <p>words words words words words</p>
+              <br>
+              <p> words</p>
+            </div>
+            </div>
+            </div>
+          <!-- Musixmactch API div -->
+          <div id="accordion" class="col-md-6">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <h7><p  id="track0"></p></h7>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="lyric0">
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <h7><p  id="track1"></p></h7>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="lyric1">
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      <h7><p  id="track2"></p></h7>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div class="lyric2">
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFour">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      <h7><p  id="track3"></p></h7>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                  <div class="lyric3">
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingFive">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      <h7><p  id="track4"></p></h7>
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                  <div class="lyric4">
+                  </div>
+                </div>
+              </div>      
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./assets/javascript/music.js"></script>
+  <script type="text/javascript" src="./assets/javascript/rhyme.js"></script>
 
 </body>
 </html>

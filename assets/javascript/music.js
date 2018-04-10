@@ -7,7 +7,7 @@ $("#nav-submit").on("click",function(event){
   var s = document.getElementById("filter");
   var pop = s.options[s.selectedIndex].value;
 
-  var ajaxURL = ["https://api.musixmatch.com/ws/1.1/track.search?callback=jsonp_callback&apikey=885d92a1571fa34dbadfb6b2506cb335&q_lyrics="+searchTerm+"&format=jsonp&callback=jsonp_callback&page_size=5&f_has_lyrics=1&_=1523257368321",  "https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&q_lyrics="+searchTerm+"&f_has_lyrics=1&s_track_rating=desc&quorum_factor=1&page_size=5&apikey=885d92a1571fa34dbadfb6b2506cb335", "https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&q_lyrics="+searchTerm+"&f_has_lyrics=1&s_track_rating=asc&quorum_factor=1&page_size=5&apikey=885d92a1571fa34dbadfb6b2506cb335"]
+  var ajaxURL = ["https://api.musixmatch.com/ws/1.1/track.search?callback=jsonp_callback&apikey=885d92a1571fa34dbadfb6b2506cb335&q_lyrics="+searchTerm+"&format=jsonp&callback=jsonp_callback&page_size=5&f_has_lyrics=1&_=1523257368321",  "https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&q_lyrics="+searchTerm+"&f_has_lyrics=1&s_track_rating=desc&quorum_factor=1&page_size=5&apikey=885d92a1571fa34dbadfb6b2506cb335", "https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=callback&q_lyrics="+searchTerm+"&f_has_lyrics=1&s_track_rating=asc&quorum_factor=1&page_size=5&apikey=885d92a1571fa34dbadfb6b2506cb335"];
 
   if (pop == 1){
     var ajaxURL = ajaxURL[1];
@@ -90,6 +90,14 @@ $("#nav-submit").on("click",function(event){
   });
 });
 
+//---------------------------Sidebar JS-------------------------------//
+$(document).ready(function () {
+  $('#sidebarCollapse').on('click', function () {
+      $('#sidebar, #content').toggleClass('active');
+      $('.collapse.in').toggleClass('in');
+      $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+  });
+});
 
 
 
