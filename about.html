@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>RhymeShark</title>
+
+ 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  
+
+</head>
+<body>
+  <div class="wrapper">
+      <!-- Sidebar Holder -->
+      <nav id="sidebar">
+          <div class="sidebar-header">
+            <img class="navbar-brand center" src="./assets/images/rhymeshark.png" width="200px">
+          </div>
+
+          <ul class="list-unstyled components">
+              <p>"10/10 Rhyme App" - CardiB</p>
+              <li>
+                  <a href="index.html">Home</a>
+              </li>
+              <li>
+                  <a href="about.html">About</a>
+              </li>
+              <li>
+                  <a href="contact.html">Contact</a>
+              </li>
+          </ul>
+      </nav>
+  
+      <!-- Page Content Holder -->
+      <div id="content">
+          <!-- Navbar with search and sidebar collapse button -->
+          <nav class="navbar fixed-top-navbar ">
+              <div class="container-fluid">
+                <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"><span>X</span></button>
+                <form class="form-inline">
+                  <div class="form-group">
+                    <select class="form-control input-sm" id="filter">
+                      <option>[Filters]</option>
+                      <option value="1">Popularity Desc</option>
+                      <option value="2">Popularity Asc</option>
+                    </select>
+                  </div>
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="nav-search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="nav-submit">Search</button>
+                  </form>
+              </div>
+          </nav>
+          <!-- Main content Starts Here-->
+          <h2>Ghostwriting rhymes since 2018</h2>
+          <p>Are you struggling writing lyrics? Do you need some sick rhymes? This app aims to help users create lyrics by using the Words API to match a searched word with rhymes. The Musixmatch API is used to present songs, album art, and lyrics that contain the searched word. Users will have the opportunity to apply certain filers (genre, popularity, release date, and language) to their searches. This is used to show the user examples of how their word of interest is used by other artists. A YouTube API will also be linked to the most popular song.</p>
+      </div>
+  </div>
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./assets/javascript/music.js"></script>
+  <script type="text/javascript" src="./assets/javascript/rhyme.js"></script>
+
+</body>
+</html>
