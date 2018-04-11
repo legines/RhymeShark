@@ -32,6 +32,7 @@ $('.search-filter').on('keyup', function() {
 
 var wordsURL = '';
 var mxmURL = '';
+var words = [];
 
 $('#nav-submit').click(function(event) {
     event.preventDefault();
@@ -42,14 +43,81 @@ $('#nav-submit').click(function(event) {
         url: wordsURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
-        $('#rhyme-results').empty();
-       response.rhymes.all.forEach(function(element) {
-           $('#rhyme-results').append(`<p>${element}</p>`);  
-       }); 
-  });
-    
+       console.log(response);
+       words = [];
+       if (typeof response.rhymes.all === 'undefined') {
+           $('.words').append('No rhymes found.');
+       }
+       else {
+          response.rhymes.all.forEach(function(element) {
+             words.push(element);
+          });
+          displayTen(words, 1);
+          //console.log('words : ' + words);
+          
+
+       } 
+    }); 
+  
 });
+
+$('body').on('click', '#previous', function(event) {
+    event.preventDefault();
+    var page = $('#page-number').attr('data-page');
+    if ((+page)>1) {
+        displayTen(words, (+page)-1);
+        $('#page-number').text(`${(+page)-1}/${Math.ceil(words.length/10)}`);
+        $('#page-number').attr('data-page',`${(+page)-1}`);
+    }
+
+});
+
+$('body').on('click', '#next', function(event) {
+    event.preventDefault();
+    var page = $('#page-number').attr('data-page');
+    if ((+page)<Math.ceil(words.length/10)) {
+        displayTen(words, (+page)+1);
+        $('#page-number').text(`${(+page)+1}/${Math.ceil(words.length/10)}`);
+        $('#page-number').attr('data-page',`${(+page)+1}`);
+    }
+
+});
+
+function displayTen(arr, page) {
+    //console.log('display ten arr ' + arr);
+    $('.words').empty();
+    arr.slice((page-1)*10, (page*10)-1).forEach(function(element) {
+      $('.words').append(`<p>${element}</p>`);
+    });
+    $('.words').append(paginationHTML(arr, page));
+}
+
+function paginationHTML(arr, page) {
+  var pages = Math.ceil(arr.length/10);
+  //console.log('pages ' + pages);
+  //console.log('length ' + arr.length);
+  var html = `
+  <nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item">
+      <button class="page-link" href="#" aria-label="Previous" id="previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </button>
+    </li>
+    <li class="page-item"><a class="page-link" id="page-number" href="#" data-page="1">${page}/${pages}</a></li>
+    <li class="page-item">
+      <button class="page-link" href="#" aria-label="Next" id="next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </button>
+    </li>
+  </ul>
+</nav>
+`
+return html;
+
+}
 
 
 
