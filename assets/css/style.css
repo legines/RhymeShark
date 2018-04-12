@@ -127,7 +127,9 @@ a[aria-expanded="true"]::before {
 	float: left;
     background-color: #ccc;
     border: none;
+
     min-height: 500px;
+
     padding: 20px 0px 20px 40px;
     border-radius: 0;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
