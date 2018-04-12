@@ -30,37 +30,39 @@ $('.search-filter').on('keyup', function() {
     }
   });
 
-var wordsURL = '';
 var mxmURL = '';
 var words = [];
+var savedSearch = '';
 
 $('#nav-submit').click(function(event) {
     event.preventDefault();
-    wordsURL = `https://www.wordsapi.com/mashape/words/${$('#nav-search').val()}/rhymes?when=2018-04-06T01:03:34.523Z&encrypted=8cfdb282e722979bea9707bfee58bebaaeb3290935fd94b8`;
+    var search = $('#nav-search').val();
+    savedSearch = search;
+    $('#word-searched').text(search);
+    $('#dropdownMenuButton').text('Rhymes');
 
-
-    $.ajax({
-        url: wordsURL,
-        method: "GET"
-    }).then(function(response) {
-       console.log(response);
-       words = [];
-       if (typeof response.rhymes.all === 'undefined') {
-           $('.words').append('No rhymes found.');
-       }
-       else {
-          response.rhymes.all.forEach(function(element) {
-             words.push(element);
-          });
-          displayTen(words, 1);
-          //console.log('words : ' + words);
-          
-
-       } 
-    }); 
+    getWords(search, 'rhymes');
   
 });
 
+$('#rhymes').click(function(event) {
+    event.preventDefault();
+    getWords(savedSearch, 'rhymes');
+    $('#dropdownMenuButton').text('Rhymes');
+});
+
+$('#definitions').click(function(event) {
+    event.preventDefault();
+    getWords(savedSearch, 'definitions');
+    $('#dropdownMenuButton').text('Definitions');
+});
+
+$('#synonyms').click(function(event) {
+    event.preventDefault();
+    getWords(savedSearch, 'synonyms');
+    $('#dropdownMenuButton').text('Synonyms');
+});
+/*
 $('body').on('click', '#previous', function(event) {
     event.preventDefault();
     var page = $('#page-number').attr('data-page');
@@ -85,11 +87,11 @@ $('body').on('click', '#next', function(event) {
 
 function displayTen(arr, page) {
     //console.log('display ten arr ' + arr);
-    $('.words').empty();
+    $('.words-results').empty();
     arr.slice((page-1)*10, (page*10)-1).forEach(function(element) {
-      $('.words').append(`<p>${element}</p>`);
+      $('.words-results').append(`<p>${element}</p>`);
     });
-    $('.words').append(paginationHTML(arr, page));
+    $('.words-results').append(paginationHTML(arr, page));
 }
 
 function paginationHTML(arr, page) {
@@ -118,6 +120,81 @@ function paginationHTML(arr, page) {
 return html;
 
 }
+*/
+function getWords(word, type) {
+    
+    var wordsURL = `https://www.wordsapi.com/mashape/words/${word}/${type}?when=2018-04-12T20:09:54.142Z&encrypted=8cfdb282e722979beb9307bdef58beb0aeb5290931fb95b8`;
+
+    $.ajax({
+        url: wordsURL,
+        method: "GET"
+    }).then(function(response) {
+       console.log(response);
+       words = [];
+        if (type==='rhymes') {
+          if (typeof response.rhymes.all === 'undefined') {
+            $('.words-results').empty()
+            $('.words-results').append('No rhymes found.');
+          } else {
+            response.rhymes.all.forEach(function(element) {
+              words.push(element);
+            });
+            displayWords(words, type);   
+          }
+        } 
+        else {
+          if (response[type].length === 0) {
+            $('.words-results').empty()
+            $('.words-results').append(`No ${type} found.`);
+          } 
+          else {
+            if(type==='definitions') {
+              response[type].forEach(function(element) {
+                words.push(element.definition);
+              });
+            }
+            else {
+              response[type].forEach(function(element) {
+                words.push(element);
+              });
+
+            }
+            
+            displayWords(words, type);   
+          }
+          
+        }
+        //console.log('words : ' + words);
+       }); 
+}
+
+function displayWords(arr, type='rhyme') {
+    $('.words-results').empty();
+    var newDiv;
+    if (type==='definitions') {
+        newDiv = $('<ol>');
+        arr.forEach(function(word) {
+          newDiv.append(`<li>${word}</li>`);
+        });
+    } 
+    else {
+        newDiv = $('<p>');
+        var count = 0;
+        arr.forEach(function(word) {
+            if (count===(arr.length-1)) {
+              newDiv.append(`${word}.`);
+            }
+            else {
+               newDiv.append(`${word}, `);
+            }
+            count++;
+           
+        });
+    }
+    $('.words-results').append(newDiv);
+
+}
+
 
 
 

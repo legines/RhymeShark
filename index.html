@@ -58,11 +58,25 @@
           <!-- Main content Starts Here-->
           <div class="row">
             <div class="col-md-6 well">
-            <div class="row">
-            <!-- Word API div -->
-            <div class="col-sm-4 col-md-10 words">
-            </div>
-            </div>
+              <div class="row">
+                <!-- Word API div -->
+                <div class="col-sm-4 col-md-10 words">
+                  <div class="row">
+                  <div class="col">
+                    <button type="button" class="btn btn-secondary" id="word-searched">+</button>
+                  </div>
+                  <div class="dropdown col">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rhymes</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#" id="rhymes">Rhymes</a>
+                      <a class="dropdown-item" href="#" id ="definitions">Definition</a>
+                      <a class="dropdown-item" href="#" id="synonyms">Synonyms</a>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="words-results"></div> 
+                </div>
+              </div>
             </div>
           <!-- Musixmactch API div -->
           <div id="accordion" class="col-md-6">
@@ -141,7 +155,9 @@
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
   <script type="text/javascript" src="./assets/javascript/music.js"></script>
   <script type="text/javascript" src="./assets/javascript/rhyme.js"></script>
 

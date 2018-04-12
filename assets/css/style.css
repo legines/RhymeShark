@@ -50,7 +50,7 @@ a, a:hover, a:focus {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #5E6D70;
+    background: #424E4F;
     color: #fff;
     transition: all 0.3s;
 }
@@ -61,7 +61,7 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #424E4F;
+    background: #5E6D70;
 }
 
 #sidebar ul.components {
@@ -75,7 +75,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a {
-    padding: 10px;
+    padding: 10px 10px 10px 20px;
     font-size: 1.1em;
     display: block;
 }
@@ -127,9 +127,15 @@ a[aria-expanded="true"]::before {
 	float: left;
     background-color: #ccc;
     border: none;
-    height: 318px;
+    min-height: 500px;
+    padding: 20px 0px 20px 40px;
     border-radius: 0;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.words-results {
+    padding: 20px 35px 25px 10px;
 }
 
 .card{
@@ -139,6 +145,10 @@ a[aria-expanded="true"]::before {
     border-radius: 0;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
    
+}
+
+.lyric0, .lyric1, .lyric2, .lyric3, .lyric4 {
+    padding: 10px;
 }
 
 .btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited, .btn-link:link{
