@@ -1,11 +1,13 @@
+@import url('https://rsms.me/inter/inter-ui.css');
+
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter UI', sans-serif;
     background: #fafafa;
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter UI', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -16,7 +18,6 @@ p {
     overflow: hidden;
     white-space: nowrap;
 }
-
 
 
 a, a:hover, a:focus {
@@ -50,7 +51,7 @@ a, a:hover, a:focus {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #424E4F;
+    background: #8B0000;
     color: #fff;
     transition: all 0.3s;
 }
@@ -61,12 +62,12 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #5E6D70;
+    background: #B22222;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #424E4F;
+    border-bottom: 1px solid #B22222;
 }
 
 #sidebar ul p {
@@ -100,7 +101,6 @@ a[aria-expanded="true"]::before {
     content: '\e260';
 }
 
-
 .btn-info{
     background-color: #424E4F;
 }
@@ -119,6 +119,7 @@ a[aria-expanded="true"]::before {
     top: 0;
     right: 0;
 }
+
 #content.active {
     width: 100%;
 }
@@ -127,9 +128,7 @@ a[aria-expanded="true"]::before {
 	float: left;
     background-color: #ccc;
     border: none;
-
     min-height: 500px;
-
     padding: 20px 0px 20px 40px;
     border-radius: 0;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
@@ -149,9 +148,6 @@ a[aria-expanded="true"]::before {
    
 }
 
-.lyric0, .lyric1, .lyric2, .lyric3, .lyric4 {
-    padding: 10px;
-}
 
 .btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited, .btn-link:link{
 	color: inherit;
