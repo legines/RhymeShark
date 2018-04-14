@@ -41,6 +41,14 @@ a, a:hover, a:focus {
     border: none;
 }
 
+
+#egggif {
+    position: absolute; 
+    top: 33%; 
+    left: 25%; 
+    display: none; 
+}
+
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
